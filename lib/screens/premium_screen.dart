@@ -17,7 +17,6 @@ class PremiumScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
           children: [
             // Header
             const Text(
@@ -58,7 +57,7 @@ class PremiumScreen extends StatelessWidget {
               subtitle: 'Get breaking news alerts first',
             ),
 
-            const Spacer(),
+            const SizedBox(height: 32),
 
             // Subscription Plans
             Container(
