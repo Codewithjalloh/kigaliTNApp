@@ -140,10 +140,29 @@ class NewsProvider with ChangeNotifier {
 
   // Get articles by category ID
   List<NewsArticle> getArticlesByCategory(String categoryId) {
+    // Map English category names to Kinyarwanda categories in dummy data
+    final categoryMapping = {
+      'news': ['Mu Rwanda'],
+      'economy': ['Ubukungu', 'Ubucuruzi'],
+      'health': ['Ubuzima'],
+      'security': ['Mu Rwanda'], // Security news is typically under general news
+      'justice': ['Mu Rwanda'], // Justice news is typically under general news
+      'sports': ['Imikino', 'Amagare', 'Football', 'Basketball'],
+      'entertainment': ['Mu Rwanda'], // Entertainment news is typically under general news
+      'education': ['Uburezi', 'Amashuri'],
+      'technology': ['Ikoranabuhanga'],
+      'remembrance': ['Mu Rwanda'], // Remembrance news is typically under general news
+      'development': ['Iterambere'],
+      'business': ['Ubucuruzi', 'Ubukungu'],
+    };
+
+    final mappedCategories = categoryMapping[categoryId.toLowerCase()] ?? [categoryId];
+    
     return _articles
         .where(
-          (article) =>
-              article.category.toLowerCase().contains(categoryId.toLowerCase()),
+          (article) => mappedCategories.any(
+            (mappedCategory) => article.category.toLowerCase().contains(mappedCategory.toLowerCase()),
+          ),
         )
         .toList();
   }

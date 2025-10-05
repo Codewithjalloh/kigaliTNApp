@@ -396,6 +396,98 @@ class NewsService {
         'timeAgo': '6 hours ago',
         'isBreaking': false,
       },
+      // Additional Security Articles
+      {
+        'title': 'Polisi y\'u Rwanda yafashije abagizi ba nabi 15 mu mezi 3',
+        'content':
+            'Polisi y\'u Rwanda yafashije abagizi ba nabi 15 mu mezi 3 y\'nyuma. Iki gikorwa cyagufashije abantu benshi.',
+        'category': 'Mu Rwanda',
+        'imageUrl':
+            'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop',
+        'url': '$baseUrl/security/police-arrests-15-criminals',
+        'timeAgo': '2 hours ago',
+        'isBreaking': false,
+      },
+      {
+        'title': 'Rwanda yongeye kwiyongera mu kurwanya ubwoba',
+        'content':
+            'Rwanda yongeye kwiyongera mu kurwanya ubwoba. Iki gikorwa cyagufashije abantu benshi.',
+        'category': 'Mu Rwanda',
+        'imageUrl':
+            'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
+        'url': '$baseUrl/security/rwanda-security-improvement',
+        'timeAgo': '4 hours ago',
+        'isBreaking': false,
+      },
+      // Additional Justice Articles
+      {
+        'title': 'Urukiko rw\'u Rwanda rwafashe icyemezo cy\'ubucuruzi',
+        'content':
+            'Urukiko rw\'u Rwanda rwafashe icyemezo cy\'ubucuruzi. Iki gikorwa cyagufashije abantu benshi.',
+        'category': 'Mu Rwanda',
+        'imageUrl':
+            'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop',
+        'url': '$baseUrl/justice/rwanda-court-decision',
+        'timeAgo': '3 hours ago',
+        'isBreaking': false,
+      },
+      {
+        'title': 'Abacamanza b\'u Rwanda bavuze ko ubucuruzi burakomeje',
+        'content':
+            'Abacamanza b\'u Rwanda bavuze ko ubucuruzi burakomeje. Ibi byavuzwe mu nama y\'abacamanza.',
+        'category': 'Mu Rwanda',
+        'imageUrl':
+            'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop',
+        'url': '$baseUrl/justice/rwanda-judges-meeting',
+        'timeAgo': '5 hours ago',
+        'isBreaking': false,
+      },
+      // Additional Entertainment Articles
+      {
+        'title': 'Abakinnyi b\'u Rwanda bavuze ko ubwoba burakomeje',
+        'content':
+            'Abakinnyi b\'u Rwanda bavuze ko ubwoba burakomeje. Ibi byavuzwe mu nama y\'abakinnyi.',
+        'category': 'Mu Rwanda',
+        'imageUrl':
+            'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop',
+        'url': '$baseUrl/entertainment/rwanda-artists-meeting',
+        'timeAgo': '3 hours ago',
+        'isBreaking': false,
+      },
+      {
+        'title': 'Ishusho ry\'u Rwanda ryatangije gahunda y\'ubwoba',
+        'content':
+            'Ishusho ry\'u Rwanda ryatangije gahunda y\'ubwoba. Iki gikorwa cyagufashije abantu benshi.',
+        'category': 'Mu Rwanda',
+        'imageUrl':
+            'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&h=300&fit=crop',
+        'url': '$baseUrl/entertainment/rwanda-cinema-innovation',
+        'timeAgo': '6 hours ago',
+        'isBreaking': false,
+      },
+      // Additional Remembrance Articles
+      {
+        'title': 'Rwanda yibutse abantu b\'abanyarwanda b\'abanyarwanda',
+        'content':
+            'Rwanda yibutse abantu b\'abanyarwanda b\'abanyarwanda. Iki gikorwa cyagufashije abantu benshi.',
+        'category': 'Mu Rwanda',
+        'imageUrl':
+            'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop',
+        'url': '$baseUrl/remembrance/rwanda-genocide-remembrance',
+        'timeAgo': '1 day ago',
+        'isBreaking': false,
+      },
+      {
+        'title': 'Abanyarwanda bavuze ko kwibuka birakomeje',
+        'content':
+            'Abanyarwanda bavuze ko kwibuka birakomeje. Ibi byavuzwe mu nama y\'abanyarwanda.',
+        'category': 'Mu Rwanda',
+        'imageUrl':
+            'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
+        'url': '$baseUrl/remembrance/rwanda-remembrance-continues',
+        'timeAgo': '2 days ago',
+        'isBreaking': false,
+      },
     ];
 
     for (int i = 0; i < realArticles.length; i++) {
