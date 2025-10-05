@@ -18,7 +18,7 @@ class _SavedScreenState extends State<SavedScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 8, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -43,10 +43,7 @@ class _SavedScreenState extends State<SavedScreen>
             Tab(text: 'History'),
             Tab(text: 'Highlights'),
             Tab(text: 'Following'),
-            Tab(text: 'Downloads'),
-            Tab(text: 'Offline'),
-            Tab(text: 'Bookmarks'),
-            Tab(text: 'Collections'),
+            Tab(text: 'Favorites'),
           ],
         ),
       ),
@@ -59,10 +56,7 @@ class _SavedScreenState extends State<SavedScreen>
               _buildHistoryArticles(newsProvider.articles),
               _buildHighlightsArticles(newsProvider.articles),
               _buildFollowingArticles(newsProvider.articles),
-              _buildDownloadsArticles(newsProvider.articles),
-              _buildOfflineArticles(newsProvider.articles),
-              _buildBookmarksArticles(newsProvider.articles),
-              _buildCollectionsArticles(newsProvider.articles),
+              _buildFavoritesArticles(newsProvider.articles),
             ],
           );
         },
@@ -139,35 +133,11 @@ class _SavedScreenState extends State<SavedScreen>
     );
   }
 
-  Widget _buildDownloadsArticles(List articles) {
+  Widget _buildFavoritesArticles(List articles) {
     return _buildEmptyState(
-      icon: Icons.download_outlined,
-      title: 'No downloaded articles',
-      subtitle: 'Download articles to read them offline',
-    );
-  }
-
-  Widget _buildOfflineArticles(List articles) {
-    return _buildEmptyState(
-      icon: Icons.offline_bolt_outlined,
-      title: 'No offline content',
-      subtitle: 'Download articles to access them without internet',
-    );
-  }
-
-  Widget _buildBookmarksArticles(List articles) {
-    return _buildEmptyState(
-      icon: Icons.bookmark_border,
-      title: 'No bookmarked articles',
-      subtitle: 'Bookmark articles to organize your reading list',
-    );
-  }
-
-  Widget _buildCollectionsArticles(List articles) {
-    return _buildEmptyState(
-      icon: Icons.collections_bookmark_outlined,
-      title: 'No collections',
-      subtitle: 'Create collections to organize your saved articles',
+      icon: Icons.favorite_border,
+      title: 'No favorite articles',
+      subtitle: 'Mark articles as favorites to see them here',
     );
   }
 
