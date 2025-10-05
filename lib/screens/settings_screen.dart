@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'premium_screen.dart';
 import 'about_screen.dart';
+import 'account_screen.dart';
+import 'privacy_policy_screen.dart';
+import 'terms_of_service_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -77,15 +80,25 @@ class SettingsScreen extends StatelessWidget {
           _buildSettingsSection('Account', [
             _buildSettingsItem(
               icon: Icons.person_outline,
-              title: 'Profile',
-              subtitle: 'Manage your profile information',
-              onTap: () {},
+              title: 'Account',
+              subtitle: 'Manage your account information',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AccountScreen()),
+                );
+              },
             ),
             _buildSettingsItem(
               icon: Icons.email_outlined,
               title: 'Email',
               subtitle: 'kigalitoday@example.com',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AccountScreen()),
+                );
+              },
             ),
           ]),
 
@@ -134,26 +147,30 @@ class SettingsScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const AboutScreen(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const AboutScreen()),
                 );
               },
             ),
             _buildSettingsItem(
               icon: Icons.privacy_tip_outlined,
-              title: 'Privacy policy',
+              title: 'Privacy Policy',
               subtitle: 'Read our privacy policy',
               onTap: () {
-                // TODO: Implement privacy policy screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
+                );
               },
             ),
             _buildSettingsItem(
               icon: Icons.description_outlined,
-              title: 'Terms of service',
+              title: 'Terms of Service',
               subtitle: 'Read our terms of service',
               onTap: () {
-                // TODO: Implement terms of service screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TermsOfServiceScreen()),
+                );
               },
             ),
           ]),
