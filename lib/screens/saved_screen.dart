@@ -18,7 +18,7 @@ class _SavedScreenState extends State<SavedScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 8, vsync: this);
   }
 
   @override
@@ -43,6 +43,10 @@ class _SavedScreenState extends State<SavedScreen>
             Tab(text: 'History'),
             Tab(text: 'Highlights'),
             Tab(text: 'Following'),
+            Tab(text: 'Downloads'),
+            Tab(text: 'Offline'),
+            Tab(text: 'Bookmarks'),
+            Tab(text: 'Collections'),
           ],
         ),
       ),
@@ -55,6 +59,10 @@ class _SavedScreenState extends State<SavedScreen>
               _buildHistoryArticles(newsProvider.articles),
               _buildHighlightsArticles(newsProvider.articles),
               _buildFollowingArticles(newsProvider.articles),
+              _buildDownloadsArticles(newsProvider.articles),
+              _buildOfflineArticles(newsProvider.articles),
+              _buildBookmarksArticles(newsProvider.articles),
+              _buildCollectionsArticles(newsProvider.articles),
             ],
           );
         },
@@ -108,14 +116,84 @@ class _SavedScreenState extends State<SavedScreen>
   }
 
   Widget _buildHistoryArticles(List articles) {
-    return _buildSavedArticles(articles);
+    return _buildEmptyState(
+      icon: Icons.history,
+      title: 'No reading history',
+      subtitle: 'Articles you read will appear here',
+    );
   }
 
   Widget _buildHighlightsArticles(List articles) {
-    return _buildSavedArticles(articles);
+    return _buildEmptyState(
+      icon: Icons.highlight_outlined,
+      title: 'No highlighted articles',
+      subtitle: 'Highlight text in articles to save important quotes',
+    );
   }
 
   Widget _buildFollowingArticles(List articles) {
-    return _buildSavedArticles(articles);
+    return _buildEmptyState(
+      icon: Icons.people_outline,
+      title: 'No followed sources',
+      subtitle: 'Follow news sources to see their latest articles here',
+    );
+  }
+
+  Widget _buildDownloadsArticles(List articles) {
+    return _buildEmptyState(
+      icon: Icons.download_outlined,
+      title: 'No downloaded articles',
+      subtitle: 'Download articles to read them offline',
+    );
+  }
+
+  Widget _buildOfflineArticles(List articles) {
+    return _buildEmptyState(
+      icon: Icons.offline_bolt_outlined,
+      title: 'No offline content',
+      subtitle: 'Download articles to access them without internet',
+    );
+  }
+
+  Widget _buildBookmarksArticles(List articles) {
+    return _buildEmptyState(
+      icon: Icons.bookmark_border,
+      title: 'No bookmarked articles',
+      subtitle: 'Bookmark articles to organize your reading list',
+    );
+  }
+
+  Widget _buildCollectionsArticles(List articles) {
+    return _buildEmptyState(
+      icon: Icons.collections_bookmark_outlined,
+      title: 'No collections',
+      subtitle: 'Create collections to organize your saved articles',
+    );
+  }
+
+  Widget _buildEmptyState({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+  }) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, size: 64, color: Colors.grey),
+          const SizedBox(height: 16),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 18, color: Colors.grey),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            subtitle,
+            style: const TextStyle(color: Colors.grey),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
   }
 }
