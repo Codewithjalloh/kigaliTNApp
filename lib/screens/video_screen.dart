@@ -17,7 +17,7 @@ class _VideoScreenState extends State<VideoScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -42,6 +42,7 @@ class _VideoScreenState extends State<VideoScreen>
             Tab(text: 'Featured'),
             Tab(text: 'Economy'),
             Tab(text: 'Sports'),
+            Tab(text: 'Technology'),
           ],
         ),
       ),
@@ -50,10 +51,11 @@ class _VideoScreenState extends State<VideoScreen>
           return TabBarView(
             controller: _tabController,
             children: [
-              _buildVideoList(newsProvider.articles),
-              _buildVideoList(newsProvider.articles),
-              _buildVideoList(newsProvider.articles),
-              _buildVideoList(newsProvider.articles),
+              _buildVideoList(newsProvider.articles), // For you - all articles
+              _buildVideoList(newsProvider.featuredArticles), // Featured - featured articles
+              _buildVideoList(newsProvider.getArticlesByCategory('economy')), // Economy
+              _buildVideoList(newsProvider.getArticlesByCategory('sports')), // Sports
+              _buildVideoList(newsProvider.getArticlesByCategory('technology')), // Technology
             ],
           );
         },
