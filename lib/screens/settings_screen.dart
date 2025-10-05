@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'premium_screen.dart';
+import 'about_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -124,48 +125,36 @@ class SettingsScreen extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // Notifications Section
-          _buildSettingsSection('Notifications', [
-            _buildSettingsItem(
-              icon: Icons.notifications_outlined,
-              title: 'Push notifications',
-              subtitle: 'Get notified about breaking news',
-              trailing: Switch(
-                value: true,
-                onChanged: (value) {},
-                activeColor: const Color(0xFFBB0000),
-              ),
-              onTap: () {},
-            ),
-            _buildSettingsItem(
-              icon: Icons.schedule_outlined,
-              title: 'Quiet hours',
-              subtitle: 'Set when to receive notifications',
-              onTap: () {},
-            ),
-          ]),
-
-          const SizedBox(height: 24),
-
           // About Section
           _buildSettingsSection('About', [
             _buildSettingsItem(
               icon: Icons.info_outline,
-              title: 'App version',
-              subtitle: '1.0.0',
-              onTap: () {},
+              title: 'About Kigali Today',
+              subtitle: 'Learn more about the app',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AboutScreen(),
+                  ),
+                );
+              },
             ),
             _buildSettingsItem(
               icon: Icons.privacy_tip_outlined,
               title: 'Privacy policy',
               subtitle: 'Read our privacy policy',
-              onTap: () {},
+              onTap: () {
+                // TODO: Implement privacy policy screen
+              },
             ),
             _buildSettingsItem(
               icon: Icons.description_outlined,
               title: 'Terms of service',
               subtitle: 'Read our terms of service',
-              onTap: () {},
+              onTap: () {
+                // TODO: Implement terms of service screen
+              },
             ),
           ]),
         ],
