@@ -1,0 +1,3 @@
+# Kigali Today Logo Placeholder
+# Replace this with the actual Kigali Today logo image
+# Recommended size: 200x60 pixels for app bar, 400x120 for splash screen

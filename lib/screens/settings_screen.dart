@@ -1,0 +1,233 @@
+import 'package:flutter/material.dart';
+import 'premium_screen.dart';
+
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          // Premium Section
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Free Account',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF1A1A1A),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const Text(
+                  'Upgrade to premium for an ad-free experience',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PremiumScreen(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFBB0000),
+                      foregroundColor: Colors.white,
+                    ),
+                    child: const Text('Go Premium'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          // Account Section
+          _buildSettingsSection('Account', [
+            _buildSettingsItem(
+              icon: Icons.person_outline,
+              title: 'Profile',
+              subtitle: 'Manage your profile information',
+              onTap: () {},
+            ),
+            _buildSettingsItem(
+              icon: Icons.email_outlined,
+              title: 'Email',
+              subtitle: 'kigalitoday@example.com',
+              onTap: () {},
+            ),
+          ]),
+
+          const SizedBox(height: 24),
+
+          // Data Saver Section
+          _buildSettingsSection('Data Saver', [
+            _buildSettingsItem(
+              icon: Icons.video_settings_outlined,
+              title: 'Video quality',
+              subtitle: 'Set your video quality to low',
+              trailing: Switch(
+                value: false,
+                onChanged: (value) {},
+                activeColor: const Color(0xFFBB0000),
+              ),
+              onTap: () {},
+            ),
+          ]),
+
+          const SizedBox(height: 24),
+
+          // Background Section
+          _buildSettingsSection('Background', [
+            _buildSettingsItem(
+              icon: Icons.picture_in_picture_outlined,
+              title: 'Picture-in-picture',
+              subtitle: 'Allow video to play on other apps',
+              trailing: Switch(
+                value: false,
+                onChanged: (value) {},
+                activeColor: const Color(0xFFBB0000),
+              ),
+              onTap: () {},
+            ),
+          ]),
+
+          const SizedBox(height: 24),
+
+          // Notifications Section
+          _buildSettingsSection('Notifications', [
+            _buildSettingsItem(
+              icon: Icons.notifications_outlined,
+              title: 'Push notifications',
+              subtitle: 'Get notified about breaking news',
+              trailing: Switch(
+                value: true,
+                onChanged: (value) {},
+                activeColor: const Color(0xFFBB0000),
+              ),
+              onTap: () {},
+            ),
+            _buildSettingsItem(
+              icon: Icons.schedule_outlined,
+              title: 'Quiet hours',
+              subtitle: 'Set when to receive notifications',
+              onTap: () {},
+            ),
+          ]),
+
+          const SizedBox(height: 24),
+
+          // About Section
+          _buildSettingsSection('About', [
+            _buildSettingsItem(
+              icon: Icons.info_outline,
+              title: 'App version',
+              subtitle: '1.0.0',
+              onTap: () {},
+            ),
+            _buildSettingsItem(
+              icon: Icons.privacy_tip_outlined,
+              title: 'Privacy policy',
+              subtitle: 'Read our privacy policy',
+              onTap: () {},
+            ),
+            _buildSettingsItem(
+              icon: Icons.description_outlined,
+              title: 'Terms of service',
+              subtitle: 'Read our terms of service',
+              onTap: () {},
+            ),
+          ]),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSettingsSection(String title, List<Widget> children) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 16, bottom: 8),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF1A1A1A),
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(children: children),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSettingsItem({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    Widget? trailing,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      leading: Icon(icon, color: const Color(0xFFBB0000)),
+      title: Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+          color: Color(0xFF1A1A1A),
+        ),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: const TextStyle(color: Colors.grey, fontSize: 12),
+      ),
+      trailing: trailing ?? const Icon(Icons.chevron_right),
+      onTap: onTap,
+    );
+  }
+}
