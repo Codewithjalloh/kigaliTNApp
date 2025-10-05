@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'settings_screen.dart';
 import 'login_screen.dart';
 import 'register_screen.dart';
+import 'saved_screen.dart';
+import 'notifications_screen.dart';
+import 'help_support_screen.dart';
+import 'about_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -38,7 +42,9 @@ class ProfileScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const LoginScreen()),
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
                       );
                     },
                   ),
@@ -52,7 +58,9 @@ class ProfileScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterScreen(),
+                        ),
                       );
                     },
                   ),
@@ -104,19 +112,36 @@ class ProfileScreen extends StatelessWidget {
               icon: Icons.bookmark_outline,
               title: 'Saved Articles',
               subtitle: 'View your saved articles',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SavedScreen()),
+                );
+              },
             ),
             _buildActionTile(
               icon: Icons.history,
               title: 'Reading History',
               subtitle: 'See your reading history',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SavedScreen()),
+                );
+              },
             ),
             _buildActionTile(
               icon: Icons.notifications_outlined,
               title: 'Notifications',
               subtitle: 'Manage your notifications',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationsScreen(),
+                  ),
+                );
+              },
             ),
             _buildActionTile(
               icon: Icons.share_outlined,
@@ -128,13 +153,25 @@ class ProfileScreen extends StatelessWidget {
               icon: Icons.help_outline,
               title: 'Help & Support',
               subtitle: 'Get help and contact support',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HelpSupportScreen(),
+                  ),
+                );
+              },
             ),
             _buildActionTile(
               icon: Icons.info_outline,
               title: 'About',
               subtitle: 'Learn more about the app',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutScreen()),
+                );
+              },
             ),
           ],
         ),
@@ -208,11 +245,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Icon(
-              icon,
-              color: Colors.white,
-              size: 32,
-            ),
+            Icon(icon, color: Colors.white, size: 32),
             const SizedBox(height: 12),
             Text(
               title,
@@ -225,10 +258,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               subtitle,
-              style: const TextStyle(
-                color: Colors.white70,
-                fontSize: 12,
-              ),
+              style: const TextStyle(color: Colors.white70, fontSize: 12),
               textAlign: TextAlign.center,
             ),
           ],
