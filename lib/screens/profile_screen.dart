@@ -9,6 +9,7 @@ import 'help_support_screen.dart';
 import 'work_with_us_screen.dart';
 import 'radio_app_screen.dart';
 import 'kt_press_screen.dart';
+import 'language_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -19,6 +20,15 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Profile'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.language),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LanguageScreen()),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {

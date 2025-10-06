@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../providers/news_provider.dart';
 import '../widgets/news_card.dart';
-import '../models/news_article.dart';
 import 'category_screen.dart';
 import 'article_detail_screen.dart';
 
@@ -417,6 +416,9 @@ class NewsSearchDelegate extends SearchDelegate<String> {
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xFFBB0000),
         foregroundColor: Colors.white,
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
       ),
     );
   }

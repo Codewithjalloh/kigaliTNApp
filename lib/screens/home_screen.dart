@@ -524,6 +524,9 @@ class NewsSearchDelegate extends SearchDelegate<String> {
         backgroundColor: Color(0xFFBB0000),
         foregroundColor: Colors.white,
       ),
+      inputDecorationTheme: const InputDecorationTheme(
+        hintStyle: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
