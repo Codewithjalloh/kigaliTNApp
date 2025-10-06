@@ -321,144 +321,149 @@ class ProfileScreen extends StatelessWidget {
                 topRight: Radius.circular(20),
               ),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Handle bar
-                Container(
-                  margin: const EdgeInsets.only(top: 12),
-                  width: 40,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(2),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Handle bar
+                  Container(
+                    margin: const EdgeInsets.only(top: 12),
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(2),
+                    ),
                   ),
-                ),
 
-                // Header
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFBB0000),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'KT',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
+                  // Header
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFBB0000),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'KT',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 12),
-                      const Text(
-                        'Share Kigali Today',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF1A1A1A),
+                        const SizedBox(height: 12),
+                        const Text(
+                          'Share Kigali Today',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF1A1A1A),
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        'Help others discover the best news app in Rwanda',
-                        style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-
-                // Share options
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    children: [
-                      _buildShareOption(
-                        icon: Icons.message_outlined,
-                        title: 'Share via Message',
-                        subtitle: 'Send via SMS or messaging apps',
-                        onTap: () => _shareViaMessage(context),
-                      ),
-                      _buildShareOption(
-                        icon: Icons.email_outlined,
-                        title: 'Share via Email',
-                        subtitle: 'Send via email',
-                        onTap: () => _shareViaEmail(context),
-                      ),
-                      _buildShareOption(
-                        icon: Icons.link,
-                        title: 'Copy Link',
-                        subtitle: 'Copy app download link',
-                        onTap: () => _copyLink(context),
-                      ),
-                      _buildShareOption(
-                        icon: Icons.qr_code,
-                        title: 'QR Code',
-                        subtitle: 'Generate QR code for easy sharing',
-                        onTap: () => _showQRCode(context),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 20),
-
-                // Share text preview
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[50],
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.grey[200]!),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Share Message:',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF1A1A1A),
+                        const SizedBox(height: 8),
+                        Text(
+                          'Help others discover the best news app in Rwanda',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey[600],
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        _getShareText(),
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.grey[700],
-                          height: 1.4,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 20),
-
-                // Cancel button
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text(
-                      'Cancel',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      ],
                     ),
                   ),
-                ),
-              ],
+
+                  // Share options
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        _buildShareOption(
+                          icon: Icons.message_outlined,
+                          title: 'Share via Message',
+                          subtitle: 'Send via SMS or messaging apps',
+                          onTap: () => _shareViaMessage(context),
+                        ),
+                        _buildShareOption(
+                          icon: Icons.email_outlined,
+                          title: 'Share via Email',
+                          subtitle: 'Send via email',
+                          onTap: () => _shareViaEmail(context),
+                        ),
+                        _buildShareOption(
+                          icon: Icons.link,
+                          title: 'Copy Link',
+                          subtitle: 'Copy app download link',
+                          onTap: () => _copyLink(context),
+                        ),
+                        _buildShareOption(
+                          icon: Icons.qr_code,
+                          title: 'QR Code',
+                          subtitle: 'Generate QR code for easy sharing',
+                          onTap: () => _showQRCode(context),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // Share text preview
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[50],
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.grey[200]!),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Share Message:',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF1A1A1A),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          _getShareText(),
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.grey[700],
+                            height: 1.4,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // Cancel button
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text(
+                        'Cancel',
+                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
     );
