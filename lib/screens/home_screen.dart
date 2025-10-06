@@ -479,7 +479,7 @@ class NewsSearchDelegate extends SearchDelegate<String> {
         if (newsProvider.isLoading) {
           return const Center(
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF1E3A8A)),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFBB0000)),
             ),
           );
         }
@@ -521,7 +521,7 @@ class NewsSearchDelegate extends SearchDelegate<String> {
   ThemeData appBarTheme(BuildContext context) {
     return Theme.of(context).copyWith(
       appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF1E3A8A),
+        backgroundColor: Color(0xFFBB0000),
         foregroundColor: Colors.white,
       ),
     );
