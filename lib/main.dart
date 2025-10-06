@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/news_provider.dart';
-import 'screens/main_navigation_screen.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(const KigaliTodayApp());
@@ -83,7 +83,7 @@ class KigaliTodayApp extends StatelessWidget {
           ),
           useMaterial3: true,
         ),
-        home: const MainNavigationScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
