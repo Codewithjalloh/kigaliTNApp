@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 
-class AboutScreen extends StatelessWidget {
-  const AboutScreen({super.key});
+class KTPressScreen extends StatelessWidget {
+  const KTPressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About'),
+        title: const Text('KT Press'),
         backgroundColor: const Color(0xFFBB0000),
         foregroundColor: Colors.white,
-        elevation: 0,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const SizedBox(height: 20),
-
-            // App Logo and Info
+            // Header Section
             Container(
+              width: double.infinity,
               padding: const EdgeInsets.all(32),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -53,7 +51,7 @@ class AboutScreen extends StatelessWidget {
                         'KT',
                         style: TextStyle(
                           color: Color(0xFFBB0000),
-                          fontSize: 40,
+                          fontSize: 36,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -61,7 +59,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   const Text(
-                    'Kigali Today',
+                    'KT Press',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 28,
@@ -70,31 +68,12 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Your trusted source for news in Rwanda',
+                    'Rwanda\'s leading digital news platform covering national, regional, and international news',
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.9),
                       fontSize: 16,
                     ),
                     textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text(
-                      'Version 1.0.0',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
                   ),
                 ],
               ),
@@ -102,7 +81,7 @@ class AboutScreen extends StatelessWidget {
 
             const SizedBox(height: 32),
 
-            // App Description
+            // Features Section
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -120,30 +99,44 @@ class AboutScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'About Kigali Today',
+                    'News Categories',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF1A1A1A),
                     ),
                   ),
-                  const SizedBox(height: 12),
-                  Text(
-                    'Kigali Today is your comprehensive news app that brings you the latest updates from Rwanda and beyond. Stay informed with breaking news, in-depth analysis, and diverse perspectives on politics, economy, sports, technology, and more.',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[700],
-                      height: 1.5,
-                    ),
-                  ),
                   const SizedBox(height: 16),
-                  Text(
-                    'Our mission is to provide accurate, timely, and relevant news that helps you stay connected with what matters most in Rwanda and the world.',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[700],
-                      height: 1.5,
-                    ),
+                  _buildFeatureItem(
+                    icon: Icons.newspaper,
+                    title: 'National & Regional News',
+                    description:
+                        'Stay updated with local and regional developments',
+                  ),
+                  _buildFeatureItem(
+                    icon: Icons.business,
+                    title: 'Business & Technology',
+                    description: 'Companies, Economy, Markets, and Tech news',
+                  ),
+                  _buildFeatureItem(
+                    icon: Icons.sports,
+                    title: 'Sports',
+                    description: 'Latest sports news and updates from Rwanda',
+                  ),
+                  _buildFeatureItem(
+                    icon: Icons.people,
+                    title: 'Society & ShowBiz',
+                    description: 'Social issues, entertainment, and lifestyle',
+                  ),
+                  _buildFeatureItem(
+                    icon: Icons.record_voice_over,
+                    title: 'Voices',
+                    description: 'Opinion pieces and editorial content',
+                  ),
+                  _buildFeatureItem(
+                    icon: Icons.analytics,
+                    title: 'Special Reports',
+                    description: 'In-depth investigative journalism',
                   ),
                 ],
               ),
@@ -151,7 +144,7 @@ class AboutScreen extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-            // Features
+            // Key Features Section
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -169,7 +162,7 @@ class AboutScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Key Features',
+                    'App Features',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -178,22 +171,14 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   _buildFeatureItem(
-                    icon: Icons.article_outlined,
-                    title: 'Latest News',
-                    description:
-                        'Stay updated with breaking news and current events',
+                    icon: Icons.notifications_active,
+                    title: 'Breaking News Alerts',
+                    description: 'Get instant notifications for breaking news',
                   ),
                   _buildFeatureItem(
-                    icon: Icons.category_outlined,
-                    title: 'Multiple Categories',
-                    description:
-                        'Browse news by categories like Economy, Sports, Technology',
-                  ),
-                  _buildFeatureItem(
-                    icon: Icons.bookmark_outline,
+                    icon: Icons.bookmark,
                     title: 'Save Articles',
-                    description:
-                        'Save articles for later reading and create your library',
+                    description: 'Bookmark articles for later reading',
                   ),
                   _buildFeatureItem(
                     icon: Icons.search,
@@ -201,9 +186,9 @@ class AboutScreen extends StatelessWidget {
                     description: 'Find specific topics and articles quickly',
                   ),
                   _buildFeatureItem(
-                    icon: Icons.notifications_outlined,
-                    title: 'Custom Notifications',
-                    description: 'Get notified about topics that interest you',
+                    icon: Icons.offline_bolt,
+                    title: 'Offline Reading',
+                    description: 'Read articles even without internet',
                   ),
                 ],
               ),
@@ -211,7 +196,7 @@ class AboutScreen extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-            // Team Information
+            // Download Section
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -229,7 +214,7 @@ class AboutScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Our Team',
+                    'Download Now',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -237,12 +222,98 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    'Kigali Today is developed by a dedicated team of journalists, developers, and designers who are passionate about delivering quality news to the Rwandan community.',
+
+                  // Google Play Store
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                      onPressed: () => _openPlayStore(context),
+                      icon: const Icon(Icons.shop),
+                      label: const Text('Download on Google Play'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFBB0000),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // App Store
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton.icon(
+                      onPressed: () => _openAppStore(context),
+                      icon: const Icon(Icons.apple),
+                      label: const Text('Download on App Store'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 24),
+
+            // QR Code Section
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  const Text(
+                    'Or scan QR code to download',
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.grey[700],
-                      height: 1.5,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1A1A1A),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Container(
+                    width: 150,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[50],
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.grey[300]!),
+                    ),
+                    child: const Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.qr_code,
+                            size: 80,
+                            color: Color(0xFFBB0000),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'QR Code',
+                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -251,123 +322,42 @@ class AboutScreen extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-            // Contact Information
+            // Website Info
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.blue[50],
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
+                border: Border.all(color: Colors.blue[200]!),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Icon(Icons.web, color: Colors.blue, size: 24),
+                  const SizedBox(height: 8),
                   const Text(
-                    'Contact Us',
+                    'Visit our website',
                     style: TextStyle(
-                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF1A1A1A),
+                      color: Colors.blue,
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  _buildContactItem(
-                    icon: Icons.email_outlined,
-                    title: 'Email',
-                    value: 'info@kigalitoday.com',
-                  ),
-                  _buildContactItem(
-                    icon: Icons.phone_outlined,
-                    title: 'Phone',
-                    value: '+250 788 123 456',
-                  ),
-                  _buildContactItem(
-                    icon: Icons.location_on_outlined,
-                    title: 'Address',
-                    value: 'Kigali, Rwanda',
-                  ),
-                  _buildContactItem(
-                    icon: Icons.web_outlined,
-                    title: 'Website',
-                    value: 'www.kigalitoday.com',
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            // Social Media
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                  const SizedBox(height: 4),
                   const Text(
-                    'Follow Us',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF1A1A1A),
-                    ),
+                    'www.ktpress.rw',
+                    style: TextStyle(fontSize: 14),
+                    textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _buildSocialButton(
-                        icon: Icons.facebook,
-                        label: 'Facebook',
-                        onTap: () {},
-                      ),
-                      _buildSocialButton(
-                        icon: Icons.alternate_email,
-                        label: 'Twitter',
-                        onTap: () {},
-                      ),
-                      _buildSocialButton(
-                        icon: Icons.camera_alt_outlined,
-                        label: 'Instagram',
-                        onTap: () {},
-                      ),
-                      _buildSocialButton(
-                        icon: Icons.video_library_outlined,
-                        label: 'YouTube',
-                        onTap: () {},
-                      ),
-                    ],
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Contact: info@ktpress.rw',
+                    style: TextStyle(fontSize: 14),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
 
-            const SizedBox(height: 32),
-
-            // Copyright
-            Text(
-              '© 2024 Kigali Today. All rights reserved.',
-              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-              textAlign: TextAlign.center,
-            ),
-
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -417,64 +407,22 @@ class AboutScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildContactItem({
-    required IconData icon,
-    required String title,
-    required String value,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Row(
-        children: [
-          Icon(icon, color: const Color(0xFFBB0000), size: 20),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF1A1A1A),
-                  ),
-                ),
-                Text(
-                  value,
-                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                ),
-              ],
-            ),
-          ),
-        ],
+  void _openPlayStore(BuildContext context) {
+    // TODO: Implement opening Google Play Store
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Opening Google Play Store...'),
+        backgroundColor: Color(0xFFBB0000),
       ),
     );
   }
 
-  Widget _buildSocialButton({
-    required IconData icon,
-    required String label,
-    required VoidCallback onTap,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: const Color(0xFFBB0000).withOpacity(0.1),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Icon(icon, color: const Color(0xFFBB0000), size: 24),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            label,
-            style: const TextStyle(fontSize: 12, color: Color(0xFF1A1A1A)),
-          ),
-        ],
+  void _openAppStore(BuildContext context) {
+    // TODO: Implement opening App Store
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Opening App Store...'),
+        backgroundColor: Color(0xFFBB0000),
       ),
     );
   }

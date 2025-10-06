@@ -6,7 +6,9 @@ import 'register_screen.dart';
 import 'saved_screen.dart';
 import 'notifications_screen.dart';
 import 'help_support_screen.dart';
-import 'about_screen.dart';
+import 'work_with_us_screen.dart';
+import 'radio_app_screen.dart';
+import 'kt_press_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -166,13 +168,41 @@ class ProfileScreen extends StatelessWidget {
               },
             ),
             _buildActionTile(
-              icon: Icons.info_outline,
-              title: 'About',
-              subtitle: 'Learn more about the app',
+              icon: Icons.business_outlined,
+              title: 'Work with Us',
+              subtitle: 'Partner with us for advertising opportunities',
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const AboutScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => const WorkWithUsScreen(),
+                  ),
+                );
+              },
+            ),
+            _buildActionTile(
+              icon: Icons.radio,
+              title: 'Download Radio App',
+              subtitle: 'Listen to Kigali Today Radio',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RadioAppScreen(),
+                  ),
+                );
+              },
+            ),
+            _buildActionTile(
+              icon: Icons.newspaper,
+              title: 'Download KT Press',
+              subtitle: 'Rwanda\'s leading digital news platform',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const KTPressScreen(),
+                  ),
                 );
               },
             ),
@@ -387,10 +417,10 @@ class ProfileScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         _buildShareOption(
-                          icon: Icons.message_outlined,
-                          title: 'Share via Message',
-                          subtitle: 'Send via SMS or messaging apps',
-                          onTap: () => _shareViaMessage(context),
+                          icon: Icons.chat,
+                          title: 'Share via WhatsApp',
+                          subtitle: 'Send via WhatsApp',
+                          onTap: () => _shareViaWhatsApp(context),
                         ),
                         _buildShareOption(
                           icon: Icons.email_outlined,
@@ -524,12 +554,12 @@ Download: https://play.google.com/store/apps/details?id=com.kigalitoday.app
 #KigaliToday #RwandaNews #StayInformed''';
   }
 
-  void _shareViaMessage(BuildContext context) {
+  void _shareViaWhatsApp(BuildContext context) {
     Navigator.pop(context);
-    // TODO: Implement native sharing via message
+    // TODO: Implement native sharing via WhatsApp
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('Opening message app...'),
+        content: Text('Opening WhatsApp...'),
         backgroundColor: Color(0xFFBB0000),
       ),
     );

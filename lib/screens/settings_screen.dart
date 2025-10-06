@@ -4,6 +4,7 @@ import 'about_screen.dart';
 import 'account_screen.dart';
 import 'privacy_policy_screen.dart';
 import 'terms_of_service_screen.dart';
+import 'feedback_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -85,18 +86,9 @@ class SettingsScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const AccountScreen()),
-                );
-              },
-            ),
-            _buildSettingsItem(
-              icon: Icons.email_outlined,
-              title: 'Email',
-              subtitle: 'kigalitoday@example.com',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AccountScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => const AccountScreen(),
+                  ),
                 );
               },
             ),
@@ -158,7 +150,9 @@ class SettingsScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => const PrivacyPolicyScreen(),
+                  ),
                 );
               },
             ),
@@ -169,7 +163,28 @@ class SettingsScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const TermsOfServiceScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => const TermsOfServiceScreen(),
+                  ),
+                );
+              },
+            ),
+          ]),
+
+          const SizedBox(height: 24),
+
+          // Feedback Section
+          _buildSettingsSection('Feedback', [
+            _buildSettingsItem(
+              icon: Icons.feedback_outlined,
+              title: 'Send Feedback',
+              subtitle: 'Help us improve Kigali Today',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FeedbackScreen(),
+                  ),
                 );
               },
             ),
